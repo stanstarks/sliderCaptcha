@@ -33,9 +33,3 @@ class Behavior(object):
 
     def getMouseTrace(self):
         return self.interactions['mouseTrace']
-
-    def writeJSON(self):
-        MouseTrace().writeJSON()
-
-    def readJSON(self):
-        MouseTrace().readJSON()

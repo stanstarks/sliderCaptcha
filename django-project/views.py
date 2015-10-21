@@ -67,16 +67,6 @@ def getAudio(request, audioType='mp3'):
 
     return HttpResponse(result, headers)
 
-def writeJSON(request):
-    visualCaptcha = Captcha(Session(request.session))
-    visualCaptcha.writeJSON()
-    return redirect('/?status=wroteJSON')
-
-def readJSON(request):
-    visualCaptcha = Captcha(Session(request.session))
-    visualCaptcha.readJSON()
-    return redirect('/?status=readJSON')
-
 @csrf_exempt
 def tryScroll(request):
     sliderCaptcha = Slider(Session(request.session))

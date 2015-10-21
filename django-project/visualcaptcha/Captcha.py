@@ -246,11 +246,3 @@ class Captcha(object):
     # Behavior related funtions
     def validateBehavior(self, sentInteractions, defaultTraces=[]):
         return Behavior(sentInteractions).validate()
-
-    def writeJSON(self):
-        Behavior({}).writeJSON()
-
-    def readJSON(self):
-        Behavior({}).readJSON()
-
-

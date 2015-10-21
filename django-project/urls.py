@@ -13,7 +13,5 @@ urlpatterns = patterns( '',
                         url(r'^image/(?P<index>[0-9]+)$', views.getImage),
                         url(r'^try$', views.trySubmission),
                         url(r'^scroll$', views.tryScroll),
-                        url(r'^write$', views.writeJSON),
-                        url(r'^read$', views.readJSON),
                         url(r'^$', views.index),
 )
