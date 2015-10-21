@@ -1,0 +1,45 @@
+/*! visualCaptcha - v0.0.7 - 2015-07-13
+* http://visualcaptcha.net
+* Copyright (c) 2015 emotionLoop; Licensed MIT */
+
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.visualCaptcha {
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+@media only screen and (min-width: 750px) {
+  .visualCaptcha {
+    margin-bottom: 50px;
+  }
+}
+.visualCaptcha * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.visualCaptcha-explanation,
+.status.valid {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color: #c1f7e8;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 18px;
+  color: #219589;
+  font-weight: 100;
+  margin: 10px 0 12px;
+}
+@media only screen and (max-width: 360px) {
+  .visualCaptcha-explanation,
+  .status.valid {
+    font-size: 16px;
+  }
+}
+
