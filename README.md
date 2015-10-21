@@ -1,13 +1,6 @@
-[![Build Status](http://img.shields.io/travis/emotionLoop/visualCaptcha-django.svg)](http://travis-ci.org/emotionLoop/visualCaptcha-django)
-[![Coverage Status](https://coveralls.io/repos/emotionLoop/visualCaptcha-django/badge.svg)](https://coveralls.io/r/emotionLoop/visualCaptcha-django)
-[![Codacy](https://www.codacy.com/project/badge/de63c55be5024f58804ede55c7f2b0e8)](https://www.codacy.com/app/bruno-bernardino/visualCaptcha-django)
-[![Code Climate](https://codeclimate.com/github/emotionLoop/visualCaptcha-django/badges/gpa.svg)](https://codeclimate.com/github/emotionLoop/visualCaptcha-django)
+# sliderCaptcha-django
 
-# visualCaptcha-django
-
-Django sample for visualCaptcha.
-
-A demo/sample Django app that uses the [visualcaptcha python package](https://github.com/emotionLoop/visualCaptcha-python) and the [visualcaptcha vanilla js bower package](https://github.com/emotionLoop/visualCaptcha-frontend-vanilla), as a proof-of-concept for how to integrate it with your Django project.
+A python-django toy project hybriding [visualCaptcha](https://github.com/emotionLoop/visualCaptcha-python) and [QapTcha]()
 
 
 ## Installation 
@@ -17,12 +10,19 @@ You need Python installed with pip.
 pip install -r requirements.txt
 ```
 
+In current settings, `memcached` is used for django in memory cache. The default port is localhost:11211. However, built-in default local memory also works. You can change the `CACHES` settings in `settings.py`.
+
 
 ## Run server
 
+First make sure memcached is running on 11211. Or start it with
+```
+$ memcached
+```
+
 To start the server on port, for example, 8282, run the following command:
 ```
-python manage.py runserver 0.0.0.0:8282
+$ python manage.py runserver 0.0.0.0:8282
 ```
 
 ## Run tests
@@ -35,39 +35,25 @@ python manage.py test
 
 ## API
 
-visualCaptcha, since 5.0, uses an API for increased security and to become back-end-agnostic (that's why you can easily plug-in a Vanilla JS, AngularJS, or jQuery front-end without changing anything).
+I adopted the visualCaptcha utilities and left the APIs unchanged. (But you have to include the js/css code if you want to use.)
 
-It expects the following routes to exist, which we've put in this sample.
+Following are added:
 
-You are expected to have these routes in your implementation, but you can change them in visualCaptcha's front-end config.
-
-### GET `/start/:howmany`
+### GET `/startslider`
 
 This route will be the first route called by the front-end, which will generate and store session data.
 
-Parameters:
+### GET `/slider(/:foreground)`
 
-- `howmany` is required, the number of images to generate.
-
-### GET `/image/:index`
-
-This route will be called for each image, to get it and show it, by index.
+This route will be called for the slider image
 
 Parameters:
 
-- `index` is required, the index of the image you want to get.
+- `foreground` is optional means fetching slider image.
 
-### GET `/audio(/:type)`
+### POST `/scroll` 
 
-This route will be called for the audio file, to get it and play it, either the mp3 or ogg file.
-
-Parameters:
-
-- `type` is optional, the audio file format defaults to `mp3`, but can also be `ogg`.
-
-### POST `/try` 
-
-This is just a sample route, where we post the form to, and where the visualCaptcha validation takes place.
+This route is where the sliderCaptcha validation takes place.
 
 
 ## License
