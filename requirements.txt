@@ -1,3 +1,5 @@
 django>=1.7.1
-visualcaptcha>=0.0.5
 djangorestframework>=2.4.3
+Pillow>=3.0.0
+numpy>=1.9.0
+python_memcached>=1.57
